@@ -13,14 +13,14 @@ Face recognition framework: https://github.com/ageitgey/face_recognition
 
 ## Frontend
 Swift / React Native app (Expo possible?)
-- start with a basic Expo app and see if calling native Swift library for FLIR SDK is possible. If so, makes iterating on the app much easier (Expo rocks!)
-		* see https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03
-		* see https://developer.flir.com/forums/topic/any-experience-using-flir-sdk-within-the-react-native-framework-or-ideas-on-it/
-- use FLIR SDK to save and upload thermal image to endpoint
-		* see https://developer.flir.com/wp-content/uploads/2015/06/FLIR_Thermal_SDK_iOS_Migration_Guide_1_0.pdf
-		* see https://developer.flir.com/getting-started/ios-platform-guide-flir-one/
-- to start, backend can validate image thermal footprint. Or faster, validate temp in the SDK via FLIRImageStatistics.getMax().value()
-- make backend call to /check_employee and check result body and login employee that was recognized
+* start with a basic Expo app and see if calling native Swift library for FLIR SDK is possible. If so, makes iterating on the app much easier (Expo rocks!)
+    * see https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db0
+    * see https://developer.flir.com/forums/topic/any-experience-using-flir-sdk-within-the-react-native-framework-or-ideas-on-it/
+* use FLIR SDK to save and upload thermal image to endpoint
+    * see https://developer.flir.com/wp-content/uploads/2015/06/FLIR_Thermal_SDK_iOS_Migration_Guide_1_0.pdf
+    * see https://developer.flir.com/getting-started/ios-platform-guide-flir-one/
+* to start, backend can validate image thermal footprint. Or faster, validate temp in the SDK via FLIRImageStatistics.getMax().value()
+* make backend call to /check_employee and check result body and login employee that was recognized
 	```
 	{
 		"result": "PASS",
@@ -38,11 +38,11 @@ Swift / React Native app (Expo possible?)
 Backend
 =============================================
 Python / Flask backend (chosen to integrate with face recognition package)
-- see https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask for basic flask primer
-		* create a POST endpoint /check_employee
-		* endpoint validates temperature in thermal image and returns 200 with body error if temp exceeds server-set threshold (~100 degrees F)
-		* endpoint then checks image against known employee image embeddings. For 40-50 employees it might be fast enough to iterate and check each embedding. 
-		* see https://github.com/ageitgey/face_recognition for package that bundles a HOG model by default as well as several other pre-trained neural networks 
-		* For bonus and better performance, use a clustering algo similar to https://github.com/ageitgey/face_recognition/blob/master/examples/face_recognition_knn.py
+* see https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask for basic flask primer
+    * create a POST endpoint /check_employee
+    * endpoint validates temperature in thermal image and returns 200 with body error if temp exceeds server-set threshold (~100 degrees F)
+    * endpoint then checks image against known employee image embeddings. For 40-50 employees it might be fast enough to iterate and check each embedding. 
+        * see https://github.com/ageitgey/face_recognition for package that bundles a HOG model by default as well as several other pre-trained neural networks 
+        * For bonus and better performance, use a clustering algo similar to https://github.com/ageitgey/face_recognition/blob/master/examples/face_recognition_knn.py
 
 
