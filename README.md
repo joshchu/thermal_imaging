@@ -10,19 +10,18 @@ FLIR image extractor for thermal image processing: https://github.com/nationaldr
 Face recognition framework: https://github.com/ageitgey/face_recognition
 
 
-## Full app
+# Full app
 
-Frontend
-===========================================
+## Frontend
 Swift / React Native app (Expo possible?)
-	- start with a basic Expo app and see if calling native Swift library for FLIR SDK is possible. If so, makes iterating on the app much easier (Expo rocks!)
-		- see https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03
-		- see https://developer.flir.com/forums/topic/any-experience-using-flir-sdk-within-the-react-native-framework-or-ideas-on-it/
-	- use FLIR SDK to save and upload thermal image to endpoint - see https://developer.flir.com/wp-content/uploads/2015/06/FLIR_Thermal_SDK_iOS_Migration_Guide_1_0.pdf
-		- https://developer.flir.com/getting-started/ios-platform-guide-flir-one/
-	- to start, backend can validate image thermal footprint
-	- or faster, validate temp in the SDK via FLIRImageStatistics.getMax().value()
-	- make backend call to /check_employee and check result body and login employee that was recognized
+	*start with a basic Expo app and see if calling native Swift library for FLIR SDK is possible. If so, makes iterating on the app much easier (Expo rocks!)
+		** see https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03
+		** see https://developer.flir.com/forums/topic/any-experience-using-flir-sdk-within-the-react-native-framework-or-ideas-on-it/
+	* use FLIR SDK to save and upload thermal image to endpoint - see https://developer.flir.com/wp-content/uploads/2015/06/FLIR_Thermal_SDK_iOS_Migration_Guide_1_0.pdf
+		**  https://developer.flir.com/getting-started/ios-platform-guide-flir-one/
+	* to start, backend can validate image thermal footprint
+	* or faster, validate temp in the SDK via FLIRImageStatistics.getMax().value()
+	* make backend call to /check_employee and check result body and login employee that was recognized
 	```
 	{
 		"result": "PASS",
