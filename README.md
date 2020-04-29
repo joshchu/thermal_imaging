@@ -39,10 +39,10 @@ Backend
 =============================================
 Python / Flask backend (chosen to integrate with face recognition package)
 * see https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask for basic flask primer
-    * create a POST endpoint /check_employee
-    * endpoint validates temperature in thermal image and returns 200 with body error if temp exceeds server-set threshold (~100 degrees F)
-    * endpoint then checks image against known employee image embeddings. For 40-50 employees it might be fast enough to iterate and check each embedding. 
-        * see https://github.com/ageitgey/face_recognition for package that bundles a HOG model by default as well as several other pre-trained neural networks 
-        * For bonus and better performance, use a clustering algo similar to https://github.com/ageitgey/face_recognition/blob/master/examples/face_recognition_knn.py
+* create a POST endpoint /check_employee
+* endpoint validates temperature in thermal image and returns 200 with body error if temp exceeds server-set threshold (~100 degrees F)
+* endpoint then checks image against known employee image embeddings. For 40-50 employees it might be fast enough to iterate and check each embedding. 
+    * see https://github.com/ageitgey/face_recognition for package that bundles a HOG model by default as well as several other pre-trained neural networks 
+    * For bonus and better performance, use a clustering algo similar to https://github.com/ageitgey/face_recognition/blob/master/examples/face_recognition_knn.py
 
 
